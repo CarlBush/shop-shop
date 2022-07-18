@@ -30,7 +30,6 @@ test("UPDATE_PRODUCTS", () => {
 });
 
 
-
 test("UPDATE_CATEGORIES", () => {
     let newState = reducer(initialState, {
         type: UPDATE_CATEGORIES,
@@ -39,4 +38,15 @@ test("UPDATE_CATEGORIES", () => {
 
     expect(newState.categories.length).toBe(2);
     expect(initialState.categories.length).toBe(1);
+});
+
+
+test("UPDATE_CURRENT_CATEGORY", () => {
+    let newState = reducer(initialState, {
+        type: UPDATE_CURRENT_CATEGORY,
+        currentCategory: "2"
+    });
+
+    expect(newState.currentCategory).toBe("2");
+    expect(initialState.currentCategory).toBe("1");
 });
